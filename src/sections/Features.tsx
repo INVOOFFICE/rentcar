@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { MousePointerClick } from 'lucide-react';
+import { img } from '@/lib/utils';
 
 export default function Features() {
   const sectionRef = useScrollAnimation<HTMLElement>({ animation: 'fadeInUp' });
@@ -11,7 +12,7 @@ export default function Features() {
           {/* Image 1 */}
           <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
             <img
-              src="/images/car-1.jpg"
+              src={img('/images/car-1.jpg')}
               alt="Remise des clés"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
@@ -20,7 +21,7 @@ export default function Features() {
           {/* Image 2 */}
           <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
             <img
-              src="/images/car-5.jpg"
+              src={img('/images/car-5.jpg')}
               alt="Client avec le concessionnaire"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />

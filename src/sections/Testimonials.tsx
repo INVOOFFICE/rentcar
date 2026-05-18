@@ -1,27 +1,28 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { img } from '@/lib/utils';
 
 const testimonials = [
   {
     id: 1,
     name: 'Christine Eve',
     role: 'Client',
-    avatar: '/images/team-2.jpg',
+    avatar: img('/images/team-2.jpg'),
     text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
   },
   {
     id: 2,
     name: 'Mike Hardson',
     role: 'Client',
-    avatar: '/images/team-1.jpg',
+    avatar: img('/images/team-1.jpg'),
     text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
   },
   {
     id: 3,
     name: 'Shirley Smith',
     role: 'Client',
-    avatar: '/images/team-3.jpg',
+    avatar: img('/images/team-3.jpg'),
     text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
   },
 ];

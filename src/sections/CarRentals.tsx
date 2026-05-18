@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Star, Users, DoorOpen, Settings2, Fuel, ArrowRight, X } from 'lucide-react';
+import { img } from '@/lib/utils';
 
 interface Car {
   id: number;
@@ -236,7 +237,7 @@ export default function CarRentals() {
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
-                    src={car.image}
+                    src={img(car.image)}
                     alt={car.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />

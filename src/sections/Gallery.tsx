@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ImagePlus } from 'lucide-react';
+import { img } from '@/lib/utils';
 
 export default function Gallery() {
   const sectionRef = useScrollAnimation<HTMLElement>({
@@ -20,7 +21,7 @@ export default function Gallery() {
             {/* Large left image */}
             <div className="gallery-item row-span-2 relative rounded-xl overflow-hidden group">
               <img
-                src="/images/car-1.jpg"
+                src={img('/images/car-1.jpg')}
                 alt="Galerie 1"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
@@ -30,7 +31,7 @@ export default function Gallery() {
             {/* Top middle */}
             <div className="gallery-item relative rounded-xl overflow-hidden group">
               <img
-                src="/images/car-3.jpg"
+                src={img('/images/car-3.jpg')}
                 alt="Galerie 2"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
@@ -40,7 +41,7 @@ export default function Gallery() {
             {/* Top right - tall */}
             <div className="gallery-item row-span-2 relative rounded-xl overflow-hidden group">
               <img
-                src="/images/car-6.jpg"
+                src={img('/images/car-6.jpg')}
                 alt="Galerie 3"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
@@ -50,7 +51,7 @@ export default function Gallery() {
             {/* Bottom middle */}
             <div className="gallery-item relative rounded-xl overflow-hidden group">
               <img
-                src="/images/car-4.jpg"
+                src={img('/images/car-4.jpg')}
                 alt="Galerie 4"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { img } from '@/lib/utils';
 
 const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
 const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
@@ -55,7 +56,7 @@ export default function Hero() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
-        style={{ backgroundImage: 'url(/images/hero-bg.jpg)' }}
+        style={{ backgroundImage: `url(${img('/images/hero-bg.jpg')})` }}
       />
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/30" />

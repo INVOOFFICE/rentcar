@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { MousePointerClick, MapPin, ChevronDown } from 'lucide-react';
+import { img } from '@/lib/utils';
 
 const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
 const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
@@ -81,7 +82,7 @@ export default function About() {
           {/* Right - Image + Form */}
           <div ref={rightRef} className="relative">
             <img
-              src="/images/about-man.png"
+              src={img('/images/about-man.png')}
               alt="Consultant professionnel"
               className="w-full max-w-[400px] mx-auto object-contain relative z-10"
             />

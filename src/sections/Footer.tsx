@@ -1,4 +1,5 @@
 import { Mail, Phone, Send } from 'lucide-react';
+import { img } from '@/lib/utils';
 
 const quickLinks = [
   { label: 'À Propos', href: '#about' },
@@ -9,12 +10,12 @@ const quickLinks = [
 ];
 
 const galleryImages = [
-  '/images/car-1.jpg',
-  '/images/car-2.jpg',
-  '/images/car-3.jpg',
-  '/images/car-4.jpg',
-  '/images/car-5.jpg',
-  '/images/car-6.jpg',
+  img('/images/car-1.jpg'),
+  img('/images/car-2.jpg'),
+  img('/images/car-3.jpg'),
+  img('/images/car-4.jpg'),
+  img('/images/car-5.jpg'),
+  img('/images/car-6.jpg'),
 ];
 
 const socialLinks = [

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from 'node:child_process';
-import { copyFileSync, mkdirSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -14,42 +14,35 @@ execSync('npx vite build', { cwd: ROOT, stdio: 'inherit' });
 
 console.log('[2/2] Copying production files to root...');
 
-const entries = readdirSync(resolve(DIST, 'assets'));
-const jsFile = entries.find(f => f.endsWith('.js'));
-const cssFile = entries.find(f => f.endsWith('.css'));
+// Copy assets (JS, CSS) to root/assets/
+const assetsDest = resolve(ROOT, 'assets');
+mkdirSync(assetsDest, { recursive: true });
+for (const f of readdirSync(resolve(DIST, 'assets'))) {
+  copyFileSync(resolve(DIST, 'assets', f), resolve(assetsDest, f));
+}
 
-const rootFiles = ['assets', 'images', 'data'];
-
-for (const dir of rootFiles) {
-  const src = resolve(DIST, dir);
-  if (existsSync(src)) {
-    const dest = resolve(ROOT, dir);
-    mkdirSync(dest, { recursive: true });
-    for (const f of readdirSync(src)) {
-      copyFileSync(resolve(src, f), resolve(dest, f));
-    }
+// Copy images to root/images/
+const imagesSrc = resolve(DIST, 'images');
+if (existsSync(imagesSrc)) {
+  const imagesDest = resolve(ROOT, 'images');
+  mkdirSync(imagesDest, { recursive: true });
+  for (const f of readdirSync(imagesSrc)) {
+    copyFileSync(resolve(imagesSrc, f), resolve(imagesDest, f));
   }
 }
 
-// Produire index.html de production à la racine
-const html = `<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Remons - Car Rental</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" crossorigin href="/rentcar/assets/${cssFile}">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" crossorigin src="/rentcar/assets/${jsFile}"></script>
-  </body>
-</html>`;
+// Copy data to root/data/
+const dataSrc = resolve(DIST, 'data');
+if (existsSync(dataSrc)) {
+  const dataDest = resolve(ROOT, 'data');
+  mkdirSync(dataDest, { recursive: true });
+  for (const f of readdirSync(dataSrc)) {
+    copyFileSync(resolve(dataSrc, f), resolve(dataDest, f));
+  }
+}
 
-writeFileSync(resolve(ROOT, 'index.html'), html, 'utf-8');
+// Copy the production index.html from dist/ to root
+copyFileSync(resolve(DIST, 'index.html'), resolve(ROOT, 'index.html'));
 
-console.log('Done. index.html now points to /rentcar/assets/' + jsFile);
+console.log('Done. Production files copied to root.');
 console.log('Commit and push to deploy.');
