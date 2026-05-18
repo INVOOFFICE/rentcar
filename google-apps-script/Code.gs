@@ -176,7 +176,7 @@ function pushToGitHub(jsonContent) {
   const owner  = PropertiesService.getScriptProperties().getProperty('GITHUB_OWNER');
   const repo   = PropertiesService.getScriptProperties().getProperty('GITHUB_REPO');
   const branch = PropertiesService.getScriptProperties().getProperty('GITHUB_BRANCH') || 'master';
-  const path   = PropertiesService.getScriptProperties().getProperty('GITHUB_PATH') || 'data/cars.json';
+  const path   = PropertiesService.getScriptProperties().getProperty('GITHUB_PATH') || 'public/data/cars.json';
 
   if (!token || !owner || !repo) {
     Logger.log('❌ Missing GITHUB_TOKEN, GITHUB_OWNER, or GITHUB_REPO in script properties.');
