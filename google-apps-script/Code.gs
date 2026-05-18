@@ -9,7 +9,7 @@
  *    - GITHUB_OWNER : repository owner (username or org)
  *    - GITHUB_REPO  : repository name
  *    - GITHUB_BRANCH: branch name (default: master)
- *    - GITHUB_PATH  : path inside repo (default: public/data/cars.json)
+ *    - GITHUB_PATH  : path inside repo (default: data/cars.json)
  * 4. Run setupSheet() once to initialise the sheet.
  * 5. Set an installable onChange trigger (Edit > Current project's triggers):
  *    - Function: onSheetChange
@@ -111,7 +111,7 @@ function pushToGitHub(jsonContent) {
   const owner    = PropertiesService.getScriptProperties().getProperty('GITHUB_OWNER');
   const repo     = PropertiesService.getScriptProperties().getProperty('GITHUB_REPO');
   const branch   = PropertiesService.getScriptProperties().getProperty('GITHUB_BRANCH') || 'master';
-  const path     = PropertiesService.getScriptProperties().getProperty('GITHUB_PATH') || 'public/data/cars.json';
+  const path     = PropertiesService.getScriptProperties().getProperty('GITHUB_PATH') || 'data/cars.json';
 
   if (!token || !owner || !repo) {
     Logger.log('❌ Missing GITHUB_TOKEN, GITHUB_OWNER, or GITHUB_REPO in script properties.');
