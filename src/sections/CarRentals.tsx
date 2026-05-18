@@ -162,7 +162,7 @@ export default function CarRentals() {
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
 
   useEffect(() => {
-    fetch('/data/cars.json')
+    fetch(`${import.meta.env.BASE_URL}data/cars.json`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load cars');
         return res.json();
