@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
@@ -13,24 +13,11 @@ export default function Hero() {
   const formRef = useRef<HTMLDivElement>(null);
   const band1Ref = useRef<HTMLDivElement>(null);
   const band2Ref = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [pickupDate, setPickupDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
   const [carNames, setCarNames] = useState<string[]>([]);
   const [location, setLocation] = useState(locations[0]);
   const [vehicleType, setVehicleType] = useState('');
-
-  const handleBooking = () => {
-    const message = [
-      '*Nouvelle Réservation*',
-      '',
-      '*Lieu :* ' + location,
-      '*Véhicule :* ' + (vehicleType || 'Non spécifié'),
-      '*Date de prise en charge :* ' + (pickupDate || 'Non spécifiée'),
-      '*Date de retour :* ' + (returnDate || 'Non spécifiée'),
-    ].join('\n');
-    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
-  };
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/cars.json`)
@@ -73,8 +60,17 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % 3);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+  const handleBooking = () => {
+    const message = [
+      '*Nouvelle Réservation*',
+      '',
+      '*Lieu :* ' + location,
+      '*Véhicule :* ' + (vehicleType || 'Non spécifié'),
+      '*Date de prise en charge :* ' + (pickupDate || 'Non spécifiée'),
+      '*Date de retour :* ' + (returnDate || 'Non spécifiée'),
+    ].join('\n');
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
+  };
 
   return (
     <section ref={sectionRef} className="relative h-screen min-h-[700px] overflow-hidden">
@@ -98,22 +94,6 @@ export default function Hero() {
         style={{ transform: 'skewX(-15deg)' }}
       />
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-8 top-1/2 -translate-y-1/2 z-20 w-[50px] h-[50px] rounded-full border border-white/30 bg-black/50 flex items-center justify-center text-white hover:bg-remons-primary hover:border-remons-primary transition-all duration-300"
-        aria-label="Diapositive précédente"
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-20 w-[50px] h-[50px] rounded-full border border-white/30 bg-black/50 flex items-center justify-center text-white hover:bg-remons-primary hover:border-remons-primary transition-all duration-300"
-        aria-label="Diapositive suivante"
-      >
-        <ChevronRight size={20} />
-      </button>
-
       {/* Content */}
       <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div ref={titleRef} className="max-w-lg">
@@ -133,7 +113,7 @@ export default function Hero() {
       {/* Booking Form Card */}
       <div
         ref={formRef}
-        className="absolute bottom-16 right-[5%] z-20 w-[380px] max-w-[90vw] bg-remons-primary rounded-3xl p-8 shadow-elevated"
+        className="absolute lg:bottom-16 bottom-8 lg:right-[5%] right-1/2 lg:translate-x-0 translate-x-1/2 z-20 w-[380px] max-w-[90vw] bg-remons-primary rounded-3xl p-8 shadow-elevated"
       >
         <div className="space-y-4">
           {/* Lieu de prise en charge */}
@@ -206,20 +186,6 @@ export default function Hero() {
             Réserver Maintenant
           </button>
         </div>
-      </div>
-
-      {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-        {[0, 1, 2].map((i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentSlide(i)}
-            className={`h-2.5 rounded-full transition-all duration-300 ${
-              i === currentSlide ? 'w-6 bg-remons-primary' : 'w-2.5 bg-white/50'
-            }`}
-            aria-label={`Aller à la diapositive ${i + 1}`}
-          />
-        ))}
       </div>
     </section>
   );

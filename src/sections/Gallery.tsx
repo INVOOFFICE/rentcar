@@ -23,6 +23,7 @@ export default function Gallery() {
               <img
                 src={img('/images/car-1.jpg')}
                 alt="Galerie 1"
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-remons-primary/0 group-hover:bg-remons-primary/20 transition-colors duration-300" />
@@ -33,6 +34,7 @@ export default function Gallery() {
               <img
                 src={img('/images/car-3.jpg')}
                 alt="Galerie 2"
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-remons-primary/0 group-hover:bg-remons-primary/20 transition-colors duration-300" />
@@ -43,6 +45,7 @@ export default function Gallery() {
               <img
                 src={img('/images/car-6.jpg')}
                 alt="Galerie 3"
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-remons-primary/0 group-hover:bg-remons-primary/20 transition-colors duration-300" />
@@ -53,6 +56,7 @@ export default function Gallery() {
               <img
                 src={img('/images/car-4.jpg')}
                 alt="Galerie 4"
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-remons-primary/0 group-hover:bg-remons-primary/20 transition-colors duration-300" />
@@ -75,9 +79,12 @@ export default function Gallery() {
                 <br />
                 &amp; Fiable
               </h3>
-              <button className="w-14 h-14 rounded-full bg-white text-remons-primary flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-300">
+              <a
+                href="#cars"
+                className="w-14 h-14 rounded-full bg-white text-remons-primary flex items-center justify-center mx-auto hover:scale-110 hover:shadow-lg transition-all duration-300"
+              >
                 <span className="text-2xl font-bold">+</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

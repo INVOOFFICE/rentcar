@@ -1,5 +1,5 @@
 
-
+import { ArrowUp } from 'lucide-react';
 const socialLinks = [
   {
     name: 'Facebook',
@@ -64,14 +64,18 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Main Grid */}
-        <div className="mb-16"></div>
-
         {/* Copyright */}
-        <div className="border-t border-white/10 pt-8 text-center">
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm font-inter">
-            &copy; 2024 Remons.com — Tous droits réservés
+            &copy; {new Date().getFullYear()} Remons.com — Tous droits réservés
           </p>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-remons-primary hover:text-white transition-all duration-300"
+            aria-label="Retour en haut"
+          >
+            <ArrowUp size={16} />
+          </button>
         </div>
       </div>
     </footer>

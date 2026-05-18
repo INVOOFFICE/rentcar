@@ -110,6 +110,7 @@ export default function About() {
             <img
               src={img('/images/about-man.png')}
               alt="Consultant professionnel"
+              loading="lazy"
               className="w-full max-w-[400px] mx-auto object-contain relative z-10"
             />
 

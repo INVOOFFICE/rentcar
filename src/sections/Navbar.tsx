@@ -1,16 +1,34 @@
-import { useState } from 'react';
-import { Phone, Search, ChevronDown, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Phone, Search, Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Accueil', href: '#', hasDropdown: true },
+  { label: 'Accueil', href: '#' },
   { label: 'À Propos', href: '#about' },
   { label: 'Galerie', href: '#gallery' },
-  { label: 'Voitures', href: '#cars', hasDropdown: true },
+  { label: 'Voitures', href: '#cars' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(l => l.href.replace('#', ''));
+      for (const id of sections.reverse()) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) {
+          setActiveSection(id);
+          return;
+        }
+      }
+      setActiveSection('');
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className="bg-white border-b border-remons-border sticky top-0 z-50">
@@ -35,16 +53,25 @@ export default function Navbar() {
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="flex items-center gap-1 font-poppins text-[15px] font-medium text-remons-dark hover:text-remons-primary transition-colors"
-              >
-                {link.label}
-                {link.hasDropdown && <ChevronDown size={12} className="mt-0.5" />}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace('#', '');
+              const isActive = sectionId ? activeSection === sectionId : activeSection === '';
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`
+                    font-poppins text-[15px] font-medium transition-colors relative
+                    ${isActive ? 'text-remons-primary' : 'text-remons-dark hover:text-remons-primary'}
+                  `}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-remons-primary rounded-full" />
+                  )}
+                </a>
+              );
+            })}
           </div>
 
           {/* Right Actions */}

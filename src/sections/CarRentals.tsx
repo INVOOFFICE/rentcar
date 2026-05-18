@@ -222,6 +222,7 @@ export default function CarRentals() {
                   <img
                     src={img(car.image)}
                     alt={car.name}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-4 right-4 bg-remons-blue text-white text-[12px] font-inter font-medium px-3 py-1 rounded-md">

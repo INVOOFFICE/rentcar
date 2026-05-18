@@ -51,26 +51,12 @@ export default function FAQ() {
             <h2 className="font-poppins text-3xl sm:text-[42px] font-bold text-remons-dark leading-[1.2] mt-3">
               Questions Fréquemment Posées
             </h2>
-            {/* Decorative car SVG */}
-            <svg
-              className="mt-8 opacity-10"
-              width="200"
-              height="100"
-              viewBox="0 0 200 100"
-              fill="none"
-            >
-              <path
-                d="M20 60c0-20 15-35 40-35h30c15 0 28 7 35 20"
-                stroke="#1A1A2E"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-              />
-              <circle cx="45" cy="60" r="18" stroke="#1A1A2E" strokeWidth="3" fill="none" />
-              <circle cx="155" cy="60" r="18" stroke="#1A1A2E" strokeWidth="3" fill="none" />
-              <path d="M30 55l-10-25" stroke="#1A1A2E" strokeWidth="3" fill="none" />
-              <path d="M35 30h90l-10-20H45z" stroke="#1A1A2E" strokeWidth="3" fill="none" />
-            </svg>
+            <p className="text-remons-gray text-sm font-inter leading-relaxed mt-6">
+              Vous avez d'autres questions ? <br />
+              <a href="https://wa.me/212630230803" target="_blank" rel="noopener noreferrer" className="text-remons-primary font-semibold hover:underline">
+                Contactez-nous sur WhatsApp
+              </a>
+            </p>
           </div>
 
           {/* Right - Accordion */}
@@ -92,13 +78,15 @@ export default function FAQ() {
                   />
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openId === faq.id ? 'max-h-48 pb-5' : 'max-h-0'
+                  className={`grid transition-all duration-300 ${
+                    openId === faq.id ? 'grid-rows-[1fr] pb-5' : 'grid-rows-[0fr]'
                   }`}
                 >
-                  <p className="text-remons-gray text-base font-inter leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <div className="overflow-hidden">
+                    <p className="text-remons-gray text-base font-inter leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
