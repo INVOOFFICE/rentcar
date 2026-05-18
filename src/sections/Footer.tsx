@@ -1,13 +1,5 @@
 import { Mail, Phone } from 'lucide-react';
 
-const quickLinks = [
-  { label: 'À Propos', href: '#about' },
-  { label: 'Nouvelles Voitures', href: '#cars' },
-  { label: 'Galerie', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
-  { label: 'FAQ', href: '#faq' },
-];
-
 const socialLinks = [
   {
     name: 'Facebook',
@@ -73,9 +65,9 @@ export default function Footer() {
         </div>
 
         {/* Main Grid */}
-        <div className="grid sm:grid-cols-2 gap-10 mb-16">
+        <div className="mb-16">
           {/* Column 1 - Contact */}
-          <div>
+          <div className="max-w-md mx-auto text-center">
             <h4 className="font-poppins text-lg font-semibold text-white mb-6">Contact</h4>
             <p className="text-white/60 text-sm font-inter leading-relaxed mb-4">
               66 Road Broklyn Golden Street, 600
@@ -97,24 +89,6 @@ export default function Footer() {
               +92 (666) 888 0000
             </a>
           </div>
-
-          {/* Column 2 - Links */}
-          <div>
-            <h4 className="font-poppins text-lg font-semibold text-white mb-6">Liens Rapides</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/60 text-sm font-inter hover:text-remons-primary transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
 
         </div>
 
