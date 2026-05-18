@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { MousePointerClick, MapPin, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
-const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
-const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
+const locations = ['Agence', 'Aéroport'];
 
 const features = [
   {
@@ -23,6 +22,14 @@ const features = [
 export default function About() {
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
+  const [carNames, setCarNames] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/cars.json`)
+      .then((res) => res.json())
+      .then((data) => setCarNames(data.map((c: { name: string }) => c.name)))
+      .catch(() => {});
+  }, []);
   const sectionRef = useScrollAnimation<HTMLElement>({ animation: 'fadeInUp' });
   const leftRef = useScrollAnimation<HTMLDivElement>({
     animation: 'fadeInUp',
@@ -96,7 +103,7 @@ export default function About() {
               <div className="space-y-3">
                 <div>
                   <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
-                    Pickup Location
+                    Lieu de prise en charge
                   </label>
                   <div className="relative">
                     <select className="w-full bg-white rounded-lg px-3 py-2.5 pr-8 appearance-none font-inter text-remons-dark text-sm focus:outline-none">
@@ -127,9 +134,9 @@ export default function About() {
                   </label>
                   <div className="relative">
                     <select className="w-full bg-white rounded-lg px-3 py-2.5 pr-8 appearance-none font-inter text-remons-dark text-sm focus:outline-none">
-                      {carTypes.map((type) => (
-                        <option key={type}>{type}</option>
-                      ))}
+                      {carNames.length > 0 ? carNames.map((name) => (
+                        <option key={name}>{name}</option>
+                      )) : <option>Toutes</option>}
                     </select>
                     <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-remons-gray pointer-events-none" />
                   </div>

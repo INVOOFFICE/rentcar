@@ -4,8 +4,7 @@ import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
-const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
-const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
+const locations = ['Agence', 'Aéroport'];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,6 +15,14 @@ export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pickupDate, setPickupDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
+  const [carNames, setCarNames] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/cars.json`)
+      .then((res) => res.json())
+      .then((data) => setCarNames(data.map((c: { name: string }) => c.name)))
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -158,9 +165,9 @@ export default function Hero() {
             </label>
             <div className="relative">
               <select className="w-full bg-white rounded-xl px-4 py-3.5 pr-10 appearance-none font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30">
-                {carTypes.map((type) => (
-                  <option key={type}>{type}</option>
-                ))}
+                {carNames.length > 0 ? carNames.map((name) => (
+                  <option key={name}>{name}</option>
+                )) : <option>Toutes</option>}
               </select>
               <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-remons-gray pointer-events-none" />
             </div>
