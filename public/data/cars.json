@@ -2,24 +2,24 @@
   {
     "id": 1,
     "name": "Dacia Logan",
-    "price": 350,
+    "price": 200,
     "duration": "Day",
     "seats": 5,
     "transmission": "Manual",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg"
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 2,
     "name": "Renault Clio 5",
-    "price": 450,
+    "price": 50,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Petrol",
-    "image": "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg"
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 3,
@@ -29,8 +29,8 @@
     "seats": 5,
     "transmission": "Automatic",
     "doors": 4,
-    "fuel": "Petrol",
-    "image": "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg"
+    "fuel": "Diesel",
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 4,
@@ -41,18 +41,18 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg"
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 5,
     "name": "Range Rover Sport",
-    "price": 2200,
+    "price": 500,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Petrol",
-    "image": "https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg"
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg"
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Petrol",
-    "image": "https://images.pexels.com/photos/100650/pexels-photo-100650.jpeg"
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg"
+    "image": "/images/car-placeholder.jpg"
   },
   {
     "id": 9,
@@ -96,17 +96,6 @@
     "transmission": "Manual",
     "doors": 2,
     "fuel": "Petrol",
-    "image": "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg"
-  },
-  {
-    "id": 10,
-    "name": "Toyota Prado",
-    "price": 1800,
-    "duration": "Day",
-    "seats": 7,
-    "transmission": "Automatic",
-    "doors": 4,
-    "fuel": "Diesel",
-    "image": "https://images.pexels.com/photos/248747/pexels-photo-248747.jpeg"
+    "image": "/images/car-placeholder.jpg"
   }
 ]
