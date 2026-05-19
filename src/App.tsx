@@ -13,7 +13,7 @@ import PwaInstallBanner from './components/PwaInstallBanner';
 
 function App() {
   return (
-    <div className="min-h-screen font-inter">
+    <div className="min-h-screen font-inter overflow-x-hidden">
       <TopBar />
       <Navbar />
       <Hero />

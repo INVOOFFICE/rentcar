@@ -83,16 +83,18 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Diagonal Bands */}
-      <div
-        ref={band1Ref}
-        className="absolute top-0 left-[-10%] h-full w-[55%] lg:w-[45%] bg-remons-primary/85"
-        style={{ transform: 'skewX(-15deg)' }}
-      />
-      <div
-        ref={band2Ref}
-        className="absolute top-0 left-[30%] lg:left-[25%] h-full w-[25%] lg:w-[20%] bg-remons-blue/60"
-        style={{ transform: 'skewX(-15deg)' }}
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          ref={band1Ref}
+          className="absolute top-0 left-[-10%] h-full w-[55%] lg:w-[45%] bg-remons-primary/85"
+          style={{ transform: 'skewX(-15deg)' }}
+        />
+        <div
+          ref={band2Ref}
+          className="absolute top-0 left-[30%] lg:left-[25%] h-full w-[25%] lg:w-[20%] bg-remons-blue/60"
+          style={{ transform: 'skewX(-15deg)' }}
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-[125px]">

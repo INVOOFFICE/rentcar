@@ -57,7 +57,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" ref={sectionRef} className="bg-remons-light-gray py-[100px]">
+    <section id="about" ref={sectionRef} className="bg-remons-light-gray py-[100px] overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[55%_45%] gap-16 items-center">
           {/* Left Content */}
