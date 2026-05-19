@@ -73,7 +73,7 @@ export default function Hero() {
   };
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen lg:min-h-[700px] lg:overflow-hidden pb-8 lg:pb-0">
+    <section ref={sectionRef} className="relative min-h-screen lg:min-h-[700px] overflow-x-hidden lg:overflow-hidden pb-8 lg:pb-0">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
@@ -85,18 +85,18 @@ export default function Hero() {
       {/* Diagonal Bands */}
       <div
         ref={band1Ref}
-        className="absolute top-0 left-[-10%] h-full w-[45%] bg-remons-primary/85"
+        className="absolute top-0 left-[-10%] h-full w-[55%] lg:w-[45%] bg-remons-primary/85"
         style={{ transform: 'skewX(-15deg)' }}
       />
       <div
         ref={band2Ref}
-        className="absolute top-0 left-[25%] h-full w-[20%] bg-remons-blue/60"
+        className="absolute top-0 left-[30%] lg:left-[25%] h-full w-[25%] lg:w-[20%] bg-remons-blue/60"
         style={{ transform: 'skewX(-15deg)' }}
       />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-[125px]">
-        <div ref={titleRef} className="max-w-lg pt-10 lg:pt-0 lg:ml-[12%]">
+        <div ref={titleRef} className="max-w-lg pt-6 sm:pt-10 lg:pt-0 lg:ml-[12%]">
           <p className="text-white/90 text-sm font-poppins tracking-[0.2em] uppercase mb-4">
             Recherchez Votre Voiture
           </p>
@@ -113,7 +113,7 @@ export default function Hero() {
       {/* Booking Form Card */}
       <div
         ref={formRef}
-        className="relative lg:absolute mt-8 lg:mt-0 lg:bottom-16 lg:right-[5%] z-20 w-full lg:w-[380px] max-w-[380px] mx-auto lg:max-w-[90vw] bg-remons-primary rounded-3xl p-8 shadow-elevated"
+        className="relative lg:absolute mt-8 lg:mt-0 lg:bottom-16 lg:right-[5%] z-20 w-full lg:w-[380px] max-w-full lg:max-w-[380px] mx-auto bg-remons-primary rounded-3xl px-5 sm:px-6 lg:px-8 py-6 sm:py-8 shadow-elevated"
       >
         <div className="space-y-4">
           {/* Lieu de prise en charge */}
@@ -136,7 +136,7 @@ export default function Hero() {
           </div>
 
           {/* Dates */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
             <div>
               <label className="block text-white text-[13px] font-inter font-medium mb-2">
                 Date de prise en charge

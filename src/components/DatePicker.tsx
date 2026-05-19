@@ -32,7 +32,7 @@ export function DatePicker({ value, onChange, min, required, className = '', lab
   };
 
   return (
-    <div className={className}>
+    <div className={cn('relative', className)}>
       {label && (
         <label className={cn('block text-sm font-inter font-medium mb-1.5')}>
           {label}
@@ -43,23 +43,28 @@ export function DatePicker({ value, onChange, min, required, className = '', lab
           <button
             type="button"
             className={cn(
-              'flex items-center gap-3 w-full rounded-xl px-4 py-3.5 text-sm font-inter text-left',
+              'flex items-center gap-2 sm:gap-3 w-full rounded-xl px-3 sm:px-4 py-3.5 text-sm font-inter text-left',
               'border border-remons-border bg-white hover:border-remons-primary/40',
               'focus:outline-none focus:ring-2 focus:ring-remons-primary/20 focus:border-remons-primary',
               'transition-all duration-200',
               !value && 'text-remons-gray'
             )}
           >
-            <Calendar size={18} className="shrink-0 text-remons-primary" />
+            <Calendar size={16} className="shrink-0 text-remons-primary" />
             <span className={cn(
-              'truncate',
+              'truncate text-[13px] sm:text-sm',
               value ? 'text-remons-dark font-medium' : 'text-remons-gray'
             )}>
               {value ? format(new Date(value + 'T00:00:00'), 'd MMMM yyyy', { locale: fr }) : 'Sélectionnez une date'}
             </span>
           </button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
+        <PopoverContent
+          className="w-auto p-0"
+          align="start"
+          side="bottom"
+          sideOffset={4}
+        >
           <CalendarUI
             mode="single"
             selected={date}

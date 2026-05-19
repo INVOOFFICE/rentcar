@@ -32,7 +32,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        "bg-white p-5 [[data-slot=popover-content]_&]:bg-transparent",
+        "bg-white p-3 sm:p-5 [[data-slot=popover-content]_&]:bg-transparent",
         className
       )}
       captionLayout={captionLayout}
@@ -43,11 +43,11 @@ function Calendar({
         ...formatters,
       }}
       classNames={{
-        root: cn("w-[300px] sm:w-[320px] select-none", defaultClassNames.root),
+        root: cn("w-full max-w-[320px] min-w-[260px] select-none", defaultClassNames.root),
         months: cn("flex flex-col", defaultClassNames.months),
         month: cn("flex flex-col w-full", defaultClassNames.month),
         nav: cn(
-          "flex items-center justify-between w-full mb-5",
+          "flex items-center justify-between w-full mb-3 sm:mb-5",
           defaultClassNames.nav
         ),
         button_previous: cn(
@@ -89,7 +89,7 @@ function Calendar({
           defaultClassNames.weekdays
         ),
         weekday: cn(
-          "text-remons-gray/50 text-xs font-medium text-center flex-1 h-8 flex items-center justify-center",
+          "text-remons-gray/50 text-[11px] sm:text-xs font-medium text-center flex-1 h-7 sm:h-8 flex items-center justify-center",
           defaultClassNames.weekday
         ),
         week: cn(
@@ -182,7 +182,7 @@ function CalendarDayButton({
       size="icon"
       data-day={day.date.toLocaleDateString()}
       className={cn(
-        "relative w-10 h-10 mx-auto p-0 rounded-full font-inter text-sm transition-all duration-150",
+        "relative w-9 h-9 sm:w-10 sm:h-10 mx-auto p-0 rounded-full font-inter text-[13px] sm:text-sm transition-all duration-150",
         isSingleSelected
           ? "bg-remons-primary text-white hover:bg-remons-primary-dark shadow-sm shadow-remons-primary/30 scale-105"
           : "text-remons-dark hover:bg-remons-light-gray hover:text-remons-dark",

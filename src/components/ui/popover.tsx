@@ -36,7 +36,8 @@ function PopoverContent({
           "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
           "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2",
           "data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-          "z-50 w-auto origin-(--radix-popover-content-transform-origin) shadow-2xl shadow-black/15 outline-hidden",
+          "z-[100] w-auto min-w-0 origin-(--radix-popover-content-transform-origin) shadow-2xl shadow-black/15 outline-hidden",
+          "max-sm:max-w-[calc(100vw-32px)] max-sm:mx-auto",
           className
         )}
         {...props}
