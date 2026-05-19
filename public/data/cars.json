@@ -2,8 +2,8 @@
   {
     "id": 1,
     "name": "Dacia Logan",
-    "price": 200,
-    "duration": "Day",
+    "price": 300,
+    "duration": "Per Day",
     "seats": 5,
     "transmission": "Manual",
     "doors": 4,
