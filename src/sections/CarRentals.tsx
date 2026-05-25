@@ -17,21 +17,68 @@ interface Car {
 }
 
 const PHONE = '212630230803';
+const BOOKING_WEB_APP_URL = import.meta.env.VITE_BOOKING_WEB_APP_URL || '';
+const BOOKING_WEB_APP_SECRET = import.meta.env.VITE_BOOKING_WEB_APP_SECRET || '';
+
+function encodePayload(payload: unknown) {
+  const bytes = new TextEncoder().encode(JSON.stringify(payload));
+  let binary = '';
+  bytes.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+  return btoa(binary);
+}
 
 function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
   const [form, setForm] = useState({
     name: '',
+    email: '',
     phone: '',
     startDate: '',
     endDate: '',
   });
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendReservationToSheet = async () => {
+    if (!BOOKING_WEB_APP_URL) {
+      throw new Error('Configuration Google Sheet manquante.');
+    }
+
+    const payload = {
+      action: 'createReservation',
+      pwa_secret: BOOKING_WEB_APP_SECRET,
+      reservation: {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        carName: car.name,
+        carPrice: car.price,
+        carDuration: car.duration,
+        startDate: form.startDate,
+        endDate: form.endDate,
+      },
+    };
+
+    const url = new URL(BOOKING_WEB_APP_URL);
+    url.searchParams.set('payload', encodePayload(payload));
+    if (BOOKING_WEB_APP_SECRET) {
+      url.searchParams.set('pwa_secret', BOOKING_WEB_APP_SECRET);
+    }
+
+    const response = await fetch(url.toString());
+    const result = await response.json();
+    if (!result.ok) {
+      throw new Error(result.error || 'La reservation n a pas ete enregistree.');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitMessage(null);
 
     const message = [
       `*Nouvelle Réservation*`,
@@ -39,6 +86,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
       `*Voiture :* ${car.name}`,
       `*Prix :* ${car.price} MAD / ${car.duration}`,
       `*Nom :* ${form.name}`,
+      `*Email :* ${form.email}`,
       `*Téléphone :* ${form.phone}`,
       `*Date de départ :* ${form.startDate}`,
       `*Date de retour :* ${form.endDate}`,
@@ -46,6 +94,14 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 
     const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
+
+    try {
+      await sendReservationToSheet();
+      setSubmitMessage('Reservation envoyee avec succes.');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Erreur pendant l envoi vers Google Sheet.';
+      setSubmitMessage(message);
+    }
   };
 
   const today = new Date().toISOString().split('T')[0];
@@ -97,6 +153,21 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
             />
           </div>
 
+          <div>
+            <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              value={form.email}
+              onChange={handleChange}
+              className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
+              placeholder="client@email.com"
+            />
+          </div>
+
           <div className="grid grid-cols-2 gap-3">
             <DatePicker
               label="Date de départ"
@@ -132,6 +203,11 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
           >
             Envoyer via WhatsApp
           </button>
+          {submitMessage && (
+            <p className="text-center text-xs font-inter text-remons-gray">
+              {submitMessage}
+            </p>
+          )}
         </form>
       </div>
     </div>
