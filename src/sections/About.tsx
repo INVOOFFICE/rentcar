@@ -4,7 +4,7 @@ import { MousePointerClick, MapPin, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
-const PHONE = '212630230803';
+const PHONE = '212661341407';
 const locations = ['Agence', 'Aéroport'];
 
 const features = [
@@ -65,35 +65,36 @@ export default function About() {
             {/* Subtitle */}
             <div className="flex items-center gap-3 mb-4 animate-item">
               <svg width="32" height="16" viewBox="0 0 32 16" fill="none">
-                <path d="M2 12c0-4 3-7 7-7h5c3 0 5 1.5 6 4" stroke="#FF3B30" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                <circle cx="8" cy="12" r="3" stroke="#FF3B30" strokeWidth="1.5" fill="none"/>
-                <circle cx="24" cy="12" r="3" stroke="#FF3B30" strokeWidth="1.5" fill="none"/>
-                <path d="M6 10l-2-5" stroke="#FF3B30" strokeWidth="1.5" fill="none"/>
+                <path d="M2 12c0-4 3-7 7-7h5c3 0 5 1.5 6 4" stroke="#08B5F4" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                <circle cx="8" cy="12" r="3" stroke="#08B5F4" strokeWidth="1.5" fill="none"/>
+                <circle cx="24" cy="12" r="3" stroke="#08B5F4" strokeWidth="1.5" fill="none"/>
+                <path d="M6 10l-2-5" stroke="#08B5F4" strokeWidth="1.5" fill="none"/>
               </svg>
               <span className="text-remons-primary text-[13px] font-inter font-medium uppercase tracking-wider">
-                APPRENEZ À NOUS CONNAÎTRE
+                YACOUT TOURS À MARRAKECH
               </span>
             </div>
 
             {/* Title */}
             <h2 className="font-poppins text-3xl sm:text-[42px] font-bold text-remons-dark leading-[1.2] mb-6 animate-item">
-              Recherchez &amp; Réservez
+              Votre agence de location
               <br />
-              Votre Véhicule Facilement
+              à Marrakech
             </h2>
 
             {/* Description */}
             <p className="text-remons-gray text-base font-inter leading-relaxed mb-10 animate-item">
-              Nous offrons une large gamme de véhicules adaptés à tous vos besoins.
-              Que ce soit pour un voyage d&apos;affaires ou des vacances en famille,
-              trouvez la voiture parfaite avec un service client exceptionnel.
+              Yacout Tours propose la meilleure sélection de voitures à des prix
+              imbattables pour vos séjours à Marrakech. Profitez du Maroc en toute
+              liberté : ville rouge, désert, vallée de l&apos;Ourika, Haut Atlas,
+              Essaouira, Ouarzazate et excursions sur mesure.
             </p>
 
             {/* Features */}
             <div className="grid sm:grid-cols-2 gap-6">
               {features.map((feature) => (
                 <div key={feature.title} className="animate-item">
-                  <div className="w-14 h-14 rounded-full bg-remons-blue flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-remons-primary to-remons-primary-light shadow-button flex items-center justify-center mb-4">
                     <feature.icon size={24} className="text-white" />
                   </div>
                   <h4 className="font-poppins text-lg font-semibold text-remons-dark mb-1">
@@ -115,7 +116,7 @@ export default function About() {
             />
 
             {/* Floating Form */}
-            <div className="absolute bottom-[-30px] right-0 lg:right-[-20px] w-[300px] max-w-full bg-remons-primary rounded-3xl p-6 shadow-elevated z-20">
+            <div className="premium-panel absolute bottom-[-30px] right-0 lg:right-[-20px] w-[300px] max-w-full rounded-3xl p-6 z-20">
               <div className="space-y-3">
                 <div>
                   <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
@@ -136,16 +137,24 @@ export default function About() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <DatePicker
-                    label="Date de départ"
-                    value={fromDate}
-                    onChange={setFromDate}
-                  />
-                  <DatePicker
-                    label="Date de retour"
-                    value={toDate}
-                    onChange={setToDate}
-                  />
+                  <div>
+                    <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
+                      Date de départ
+                    </label>
+                    <DatePicker
+                      value={fromDate}
+                      onChange={setFromDate}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
+                      Date de retour
+                    </label>
+                    <DatePicker
+                      value={toDate}
+                      onChange={setToDate}
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -170,7 +179,7 @@ export default function About() {
                 <button
                   type="button"
                   onClick={handleBooking}
-                  className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-2.5 rounded-lg hover:bg-remons-secondary/90 transition-colors"
+                  className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-2.5 rounded-lg hover:bg-slate-950 hover:-translate-y-0.5 transition-all duration-300"
                 >
                   Réserver Maintenant
                 </button>

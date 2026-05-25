@@ -14,14 +14,14 @@ export default function TopBar() {
         <div className="flex items-center justify-between h-[42px]">
           {/* Left */}
           <div className="flex items-center gap-4 text-[13px] font-inter">
-            <a href="mailto:info@example.com" className="flex items-center gap-2 hover:text-remons-primary transition-colors">
+            <a href="mailto:yacout.tours@gmail.com" className="flex items-center gap-2 hover:text-remons-primary transition-colors">
               <Mail size={14} />
-              <span>info@example.com</span>
+              <span>yacout.tours@gmail.com</span>
             </a>
             <span className="text-white/30">|</span>
             <div className="flex items-center gap-2">
               <MapPin size={14} />
-              <span>Marrakech, Maroc</span>
+              <span>100 Rue Mohammed el Beqal, Marrakech</span>
             </div>
           </div>
 

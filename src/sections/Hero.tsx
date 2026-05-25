@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
-const PHONE = '212630230803';
+const PHONE = '212661341407';
 const locations = ['Agence', 'Aéroport'];
 
 export default function Hero() {
@@ -80,18 +80,18 @@ export default function Hero() {
         style={{ backgroundImage: `url(${img('/images/hero-bg.jpg')})` }}
       />
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-slate-950/40" />
 
       {/* Diagonal Bands */}
       <div className="absolute inset-0 overflow-hidden">
         <div
           ref={band1Ref}
-          className="absolute top-0 left-[-10%] h-full w-[55%] lg:w-[45%] bg-remons-primary/85"
+          className="absolute top-0 left-[-10%] h-full w-[55%] lg:w-[45%] bg-gradient-to-br from-remons-primary/90 to-remons-primary-light/75"
           style={{ transform: 'skewX(-15deg)' }}
         />
         <div
           ref={band2Ref}
-          className="absolute top-0 left-[30%] lg:left-[25%] h-full w-[25%] lg:w-[20%] bg-remons-blue/60"
+          className="absolute top-0 left-[30%] lg:left-[25%] h-full w-[25%] lg:w-[20%] bg-white/18"
           style={{ transform: 'skewX(-15deg)' }}
         />
       </div>
@@ -100,14 +100,14 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-[125px]">
         <div ref={titleRef} className="max-w-lg pt-6 sm:pt-10 lg:pt-0 lg:ml-[12%]">
           <p className="text-white/90 text-sm font-poppins tracking-[0.2em] uppercase mb-4">
-            Recherchez Votre Voiture
+            Yacout Tours Marrakech
           </p>
           <h1 className="font-poppins text-4xl sm:text-5xl lg:text-[52px] font-bold text-white leading-[1.2]">
-            Recherchez &amp; Réservez
+            Location de Voitures
             <br />
-            Votre Véhicule
+            À Prix Imbattables
             <br />
-            Facilement
+            Au Maroc
           </h1>
         </div>
       </div>
@@ -115,7 +115,7 @@ export default function Hero() {
       {/* Booking Form Card */}
       <div
         ref={formRef}
-        className="relative lg:absolute mt-8 lg:mt-0 lg:bottom-16 lg:right-[5%] z-20 w-full lg:w-[380px] max-w-full lg:max-w-[380px] mx-auto bg-remons-primary rounded-3xl px-5 sm:px-6 lg:px-8 py-6 sm:py-8 shadow-elevated"
+        className="premium-panel relative lg:absolute mt-8 lg:mt-0 lg:bottom-16 lg:right-[5%] z-20 w-full lg:w-[380px] max-w-full lg:max-w-[380px] mx-auto rounded-3xl px-5 sm:px-6 lg:px-8 py-6 sm:py-8"
       >
         <div className="space-y-4">
           {/* Lieu de prise en charge */}
@@ -183,7 +183,7 @@ export default function Hero() {
           <button
             type="button"
             onClick={handleBooking}
-            className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-3.5 rounded-xl hover:bg-remons-secondary/90 transition-colors"
+            className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-3.5 rounded-xl hover:bg-slate-950 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
           >
             Réserver Maintenant
           </button>

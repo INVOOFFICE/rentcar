@@ -7,13 +7,13 @@ import { VitePWA } from 'vite-plugin-pwa'
 import type { ManifestOptions } from 'vite-plugin-pwa'
 
 const manifest: Partial<ManifestOptions> = {
-  name: "Remons - Car Rental",
-  short_name: "Remons",
-  description: "Location de voitures premium",
+  name: "Yacout Tours - Location de voitures",
+  short_name: "Yacout Tours",
+  description: "La meilleure sélection de voitures à des prix imbattables à Marrakech",
   start_url: "/RENTCAR/",
   display: "standalone",
   background_color: "#ffffff",
-  theme_color: "#FF3B30",
+  theme_color: "#08B5F4",
   lang: "fr",
   icons: [
     {

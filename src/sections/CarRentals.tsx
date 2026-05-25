@@ -16,7 +16,7 @@ interface Car {
   image: string;
 }
 
-const PHONE = '212630230803';
+const PHONE = '212661341407';
 const BOOKING_WEB_APP_URL = import.meta.env.VITE_BOOKING_WEB_APP_URL || '';
 const BOOKING_WEB_APP_SECRET = import.meta.env.VITE_BOOKING_WEB_APP_SECRET || '';
 
@@ -199,7 +199,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 
           <button
             type="submit"
-            className="w-full bg-remons-primary text-white font-poppins text-sm font-semibold py-3.5 rounded-xl hover:bg-remons-primary-dark transition-colors"
+            className="btn-primary w-full font-poppins text-sm py-3.5"
           >
             Envoyer via WhatsApp
           </button>
@@ -350,7 +350,7 @@ export default function CarRentals() {
 
                   <button
                     onClick={() => setSelectedCar(car)}
-                    className="w-full flex items-center justify-center gap-2 bg-remons-light-gray text-remons-dark font-poppins text-sm font-medium py-3 rounded-xl hover:bg-remons-primary hover:text-white transition-all duration-300"
+                    className="w-full flex items-center justify-center gap-2 bg-remons-light-gray text-remons-dark font-poppins text-sm font-medium py-3 rounded-xl hover:bg-remons-primary hover:text-white hover:shadow-button transition-all duration-300"
                   >
                     Réserver Maintenant
                     <ArrowRight size={16} />

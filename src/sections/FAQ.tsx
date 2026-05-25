@@ -53,7 +53,7 @@ export default function FAQ() {
             </h2>
             <p className="text-remons-gray text-sm font-inter leading-relaxed mt-6">
               Vous avez d'autres questions ? <br />
-              <a href="https://wa.me/212630230803" target="_blank" rel="noopener noreferrer" className="text-remons-primary font-semibold hover:underline">
+              <a href="https://wa.me/212661341407" target="_blank" rel="noopener noreferrer" className="text-remons-primary font-semibold hover:underline">
                 Contactez-nous sur WhatsApp
               </a>
             </p>

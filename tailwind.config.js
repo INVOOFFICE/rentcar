@@ -10,14 +10,15 @@ module.exports = {
       },
       colors: {
         remons: {
-          primary: '#FF3B30',
-          'primary-dark': '#E63328',
-          secondary: '#0F1C2E',
-          blue: '#0066CC',
-          dark: '#1A1A2E',
-          gray: '#6B7280',
-          'light-gray': '#F3F4F6',
-          border: '#E5E7EB',
+          primary: 'rgb(var(--primary-rgb) / <alpha-value>)',
+          'primary-light': 'rgb(var(--primary-light-rgb) / <alpha-value>)',
+          'primary-dark': '#0597D2',
+          secondary: '#111827',
+          blue: '#2563EB',
+          dark: 'var(--dark)',
+          gray: 'var(--gray)',
+          'light-gray': '#F5F8FB',
+          border: '#E6EDF4',
           star: '#F5A623',
         },
         border: "hsl(var(--border))",
@@ -26,8 +27,8 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "rgb(var(--primary-rgb) / <alpha-value>)",
+          foreground: "var(--primary-foreground)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -74,8 +75,9 @@ module.exports = {
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
         card: "0 4px 20px rgba(0,0,0,0.08)",
-        elevated: "0 10px 40px rgba(0,0,0,0.12)",
-        button: "0 4px 15px rgba(255,59,48,0.3)",
+        elevated: "0 18px 45px rgba(15, 28, 46, 0.14)",
+        button: "0 10px 25px rgba(8,181,244,0.35)",
+        premium: "0 18px 45px rgba(8,181,244,0.24)",
       },
       keyframes: {
         "accordion-down": {
