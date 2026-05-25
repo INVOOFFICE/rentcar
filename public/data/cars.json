@@ -81,7 +81,7 @@
     "name": "VolksWagen-Touareg",
     "price": 0,
     "duration": "Jour",
-    "seats": 4,
+    "seats": 5,
     "transmission": "Automatique",
     "doors": 4,
     "fuel": "Diesel",
