@@ -7,7 +7,7 @@
     "seats": 5,
     "transmission": "Manuelle",
     "doors": 4,
-    "fuel": "Diesel",
+    "fuel": "Essence",
     "image": "https://www.yacout-tours.com/uploads/cars/e0e96d4d7b002a86cb9502ba95c61a33.png"
   },
   {
@@ -18,7 +18,7 @@
     "seats": 5,
     "transmission": "Manuelle",
     "doors": 4,
-    "fuel": "Petrol",
+    "fuel": "Essence",
     "image": "https://www.yacout-tours.com/uploads/cars/679728f2afb7ff74a87189e4681db82e.png"
   },
   {
@@ -51,7 +51,7 @@
     "seats": 5,
     "transmission": "Manuelle",
     "doors": 5,
-    "fuel": "Petrol",
+    "fuel": "Diesel",
     "image": "https://www.yacout-tours.com/uploads/cars/318dbe526a74793cef9d3812ccc9e38c.png"
   },
   {
@@ -73,7 +73,7 @@
     "seats": 5,
     "transmission": "Automatique",
     "doors": 4,
-    "fuel": "Petrol",
+    "fuel": "Essence",
     "image": "https://www.yacout-tours.com/uploads/cars/10860768d97425244c7d47f7615564ec.png"
   },
   {
@@ -84,7 +84,7 @@
     "seats": 4,
     "transmission": "Automatique",
     "doors": 4,
-    "fuel": "Petrol",
+    "fuel": "Diesel",
     "image": "https://www.yacout-tours.com/uploads/cars/479e9ba94e00ca8ca3df12436949a73b.png"
   }
 ]
