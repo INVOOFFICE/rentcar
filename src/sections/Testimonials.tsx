@@ -1,28 +1,27 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { img } from '@/lib/utils';
 
 const testimonials = [
   {
     id: 1,
     name: 'Christine Eve',
     role: 'Client',
-    avatar: img('/images/team-2.jpg'),
+    initials: 'CE',
     text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
   },
   {
     id: 2,
     name: 'Mike Hardson',
     role: 'Client',
-    avatar: img('/images/team-1.jpg'),
+    initials: 'MH',
     text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
   },
   {
     id: 3,
     name: 'Shirley Smith',
     role: 'Client',
-    avatar: img('/images/team-3.jpg'),
+    initials: 'SS',
     text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
   },
 ];
@@ -46,13 +45,13 @@ export default function Testimonials() {
                 <button
                   key={t.id}
                   onClick={() => setCurrent(i)}
-                  className={`w-[60px] h-[60px] rounded-full overflow-hidden border-3 transition-all duration-300 ${
+                  className={`w-[60px] h-[60px] rounded-full overflow-hidden border-3 transition-all duration-300 flex items-center justify-center text-white font-poppins font-bold text-lg ${
                     i === current
-                      ? 'border-remons-primary scale-110'
-                      : 'border-transparent opacity-60 hover:opacity-80'
+                      ? 'border-remons-primary scale-110 bg-remons-primary'
+                      : 'border-transparent opacity-60 hover:opacity-80 bg-remons-primary/60'
                   }`}
                 >
-                  <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                  {t.initials}
                 </button>
               ))}
             </div>
