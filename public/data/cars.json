@@ -75,16 +75,5 @@
     "doors": 4,
     "fuel": "Petrol",
     "image": "https://www.leguideauto.ma/contents/cars/pictures/2021/12/large/GD6Qi50VzchdMwlYv4YkCE8HsOqAOHIWnAyE2ilT.webp"
-  },
-  {
-    "id": 8,
-    "name": "Volkswagen Golf 8",
-    "price": 357,
-    "duration": "Day",
-    "seats": 5,
-    "transmission": "Automatic",
-    "doors": 4,
-    "fuel": "Diesel",
-    "image": "https://assets.volkswagen.com/is/image/volkswagenag/GL6287_Golf_exterior_IQ-Light_front_view_16-91?Zml0"
   }
 ]
