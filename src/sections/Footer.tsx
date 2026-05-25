@@ -1,6 +1,8 @@
 
 import { ArrowUp } from 'lucide-react';
 import { img } from '@/lib/utils';
+import { useState } from 'react';
+import TermsModal from '@/components/TermsModal';
 const socialLinks = [
   {
     name: 'Facebook',
@@ -21,6 +23,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [termsOpen, setTermsOpen] = useState(false);
   return (
     <footer id="contact" className="bg-remons-secondary pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,6 +60,10 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm font-inter">
             &copy; {new Date().getFullYear()} Yacout Tours — 100 Rue Mohammed el Beqal, Marrakech 40000, Maroc — +212 6 61 34 14 07 — yacout.tours@gmail.com
+            {' — '}
+            <button onClick={() => setTermsOpen(true)} className="underline hover:text-white transition-colors">
+              Terms & Conditions
+            </button>
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -67,6 +74,7 @@ export default function Footer() {
           </button>
         </div>
       </div>
+      <TermsModal open={termsOpen} onClose={() => setTermsOpen(false)} />
     </footer>
   );
 }
