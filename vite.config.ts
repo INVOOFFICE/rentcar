@@ -10,20 +10,20 @@ const manifest: Partial<ManifestOptions> = {
   name: "Remons - Car Rental",
   short_name: "Remons",
   description: "Location de voitures premium",
-  start_url: "/car/",
+  start_url: "/RENTCAR/",
   display: "standalone",
   background_color: "#ffffff",
   theme_color: "#FF3B30",
   lang: "fr",
   icons: [
     {
-      src: "/car/icon.svg",
+      src: "/RENTCAR/icon.svg",
       sizes: "512x512",
       type: "image/svg+xml",
       purpose: "any",
     },
     {
-      src: "/car/icon.svg",
+      src: "/RENTCAR/icon.svg",
       sizes: "512x512",
       type: "image/svg+xml",
       purpose: "maskable",
@@ -32,7 +32,7 @@ const manifest: Partial<ManifestOptions> = {
 }
 
 export default defineConfig({
-  base: '/car/',
+  base: '/RENTCAR/',
   plugins: [
     inspectAttr(),
     react(),

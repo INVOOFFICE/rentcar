@@ -41,6 +41,14 @@ if (existsSync(dataSrc)) {
   }
 }
 
+// Copy PWA/root static files emitted by Vite.
+for (const f of ['icon.svg', 'manifest.webmanifest', 'registerSW.js', 'sw.js', 'workbox-dcde9eb3.js']) {
+  const src = resolve(DIST, f);
+  if (existsSync(src)) {
+    copyFileSync(src, resolve(ROOT, f));
+  }
+}
+
 // Copy the production index.html from dist/ to root
 copyFileSync(resolve(DIST, 'index.html'), resolve(ROOT, 'index.html'));
 

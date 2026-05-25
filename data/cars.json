@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Dacia Logan",
+    "price": 300,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Manual",
+    "doors": 4,
+    "fuel": "Diesel",
+    "image": "https://cdn.group.renault.com/dac/master/dacia-vn/vehicules/logan/logan-li1-ph2/herozone-banners/dacia-logan-li1-ph2-herozone-001-desktop.jpg.ximg.largex2.webp/27ae8c6dae.webp"
+  },
+  {
+    "id": 2,
+    "name": "Renault Clio 5",
+    "price": 50,
+    "duration": "Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Petrol",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Renault_Clio_V_Genf_2019_1Y7A5590.jpg/1280px-Renault_Clio_V_Genf_2019_1Y7A5590.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Peugeot 208",
+    "price": 500,
+    "duration": "Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Diesel",
+    "image": "https://www.peugeot.ma/content/dam/peugeot/morocco/offres-du-moment/PEUGEOT_208_hybrid-1920-1080.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Hyundai Tucson",
+    "price": 800,
+    "duration": "Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Diesel",
+    "image": "https://www.hyundai.com/content/dam/hyundai/ma/fr/images/temp/202448081148/kona-hybrid-560-1.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Range Rover Sport",
+    "price": 500,
+    "duration": "Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Petrol",
+    "image": "https://media.cdn-jaguarlandrover.com/api/v2/images/118257/w/680/h/383.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Mercedes Classe C",
+    "price": 1400,
+    "duration": "Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Diesel",
+    "image": "https://im.qccdn.fr/node/actualite-mercedes-classe-c-2018-premieres-impressions-58421/thumbnail_800x480px-135870.jpg"
+  },
+  {
+    "id": 7,
+    "name": "BMW S?rie 3",
+    "price": 1500,
+    "duration": "Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Petrol",
+    "image": "https://www.leguideauto.ma/contents/cars/pictures/2021/12/large/GD6Qi50VzchdMwlYv4YkCE8HsOqAOHIWnAyE2ilT.webp"
+  },
+  {
+    "id": 8,
+    "name": "Volkswagen Golf 8",
+    "price": 650,
+    "duration": "Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Diesel",
+    "image": "https://assets.volkswagen.com/is/image/volkswagenag/GL6287_Golf_exterior_IQ-Light_front_view_16-91?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTgwMCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZiYzYz"
+  }
+]
