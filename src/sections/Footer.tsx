@@ -3,6 +3,7 @@ import { ArrowUp } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { useState } from 'react';
 import TermsModal from '@/components/TermsModal';
+import PrivacyModal from '@/components/PrivacyModal';
 const socialLinks = [
   {
     name: 'Facebook',
@@ -24,6 +25,7 @@ const socialLinks = [
 
 export default function Footer() {
   const [termsOpen, setTermsOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
   return (
     <footer id="contact" className="bg-remons-secondary pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,6 +66,10 @@ export default function Footer() {
             <button onClick={() => setTermsOpen(true)} className="underline hover:text-white transition-colors">
               Terms & Conditions
             </button>
+            {' — '}
+            <button onClick={() => setPrivacyOpen(true)} className="underline hover:text-white transition-colors">
+              Politique de confidentialité
+            </button>
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -75,6 +81,7 @@ export default function Footer() {
         </div>
       </div>
       <TermsModal open={termsOpen} onClose={() => setTermsOpen(false)} />
+      <PrivacyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </footer>
   );
 }
