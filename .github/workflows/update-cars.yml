@@ -54,4 +54,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/cars.json
           git commit -m "chore: publish cars data"
+          git pull origin master --rebase
           git push
