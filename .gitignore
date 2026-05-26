@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-Vid.mp4
+/Vid.mp4
