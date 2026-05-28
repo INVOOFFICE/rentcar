@@ -76,6 +76,25 @@ function getBracket(category: string, days: number): PriceBracket | undefined {
   return brackets.find(b => days >= b.minDays && days <= b.maxDays);
 }
 
+const TRANSPORT_PRICES: Record<string, number> = {
+  'Marrakech ville': 0,
+  'Aéroport Marrakech': 0,
+  'Casablanca ville': 53,
+  'Aéroport Casablanca': 53,
+  'Rabat ville': 63,
+  'Aéroport Rabat': 63,
+  'Agadir ville': 53,
+  'Aéroport Agadir': 53,
+  'Fès ville': 115,
+  'Aéroport Fès': 115,
+  'Ouarzazate ville': 53,
+  'Aéroport Ouarzazate': 53,
+  'Essaouira ville': 53,
+  'Aéroport Essaouira': 53,
+  'Tanger ville': 125,
+  'Aéroport Tanger': 125,
+};
+
 const PHONE = '212661341407';
 const BOOKING_WEB_APP_URL = import.meta.env.VITE_BOOKING_WEB_APP_URL || '';
 const BOOKING_WEB_APP_SECRET = import.meta.env.VITE_BOOKING_WEB_APP_SECRET || '';
@@ -120,7 +139,9 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
   const season = getSeason(form.startDate);
   const bracket = getBracket(car.category, days);
   const dailyRate = bracket ? (season === 'haute' ? bracket.haute : bracket.normal) : 0;
-  const totalEUR = dailyRate * days;
+  const transportPrice = TRANSPORT_PRICES[form.location] ?? 0;
+  const rentalTotalEUR = dailyRate * days;
+  const totalEUR = rentalTotalEUR + transportPrice;
 
   const sendReservationToSheet = async () => {
     if (!BOOKING_WEB_APP_URL) {
@@ -141,9 +162,11 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
         startDate: form.startDate,
         endDate: form.endDate,
         location: form.location,
+        transportEUR: transportPrice,
         season: season,
         durationDays: days,
         dailyRateEUR: dailyRate,
+        rentalTotalEUR: rentalTotalEUR,
         totalEUR: totalEUR,
       },
     };
@@ -167,6 +190,9 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 
     const seasonLabel = season === 'haute' ? 'Haute Saison' : 'Saison Normale';
     const durationLabel = bracket ? bracket.label : '-';
+    const transportDetail = transportPrice > 0
+      ? `Trajet : ${form.location} (${transportPrice} EUR)`
+      : null;
     const message = [
       t('cars.bookingTitle'),
       ``,
@@ -174,7 +200,8 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
       `Catégorie : ${car.category}`,
       `Saison : ${seasonLabel}`,
       `Durée : ${days} jours (${durationLabel})`,
-      `Tarif : ${dailyRate} EUR / jour`,
+      `Location : ${dailyRate} EUR × ${days} j = ${rentalTotalEUR} EUR`,
+      ...(transportDetail ? [transportDetail] : []),
       `*Total : ${totalEUR} EUR*`,
       t('cars.locationField') + form.location,
       t('cars.nameField') + form.name,
@@ -295,9 +322,15 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
                 <span className="font-medium">{days} jours ({bracket?.label})</span>
               </div>
               <div className="flex justify-between text-sm font-inter text-remons-dark">
-                <span>Tarif journalier</span>
-                <span className="font-medium">{dailyRate} EUR</span>
+                <span>Location ({dailyRate} EUR × {days} j)</span>
+                <span className="font-medium">{rentalTotalEUR} EUR</span>
               </div>
+              {transportPrice > 0 && (
+                <div className="flex justify-between text-sm font-inter text-remons-dark">
+                  <span>Trajet ({form.location})</span>
+                  <span className="font-medium">{transportPrice} EUR</span>
+                </div>
+              )}
               <div className="border-t border-remons-border pt-1.5 mt-1.5 flex justify-between text-sm font-inter font-bold text-remons-primary">
                 <span>Total</span>
                 <span>{totalEUR} EUR</span>
