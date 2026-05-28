@@ -102,9 +102,6 @@ export default function Navbar() {
 
           {/* Right Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <CurrencySwitcher variant="dark" />
-            <LanguageSwitcher variant="dark" />
-
             {/* Phone */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-remons-primary to-remons-primary-light shadow-button flex items-center justify-center">
