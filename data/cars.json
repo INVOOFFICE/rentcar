@@ -45,7 +45,7 @@
   },
   {
     "id": 5,
-    "name": "Citroen-C3",
+    "name": "Citroen C3 Aircross",
     "price": 200,
     "duration": "Jour",
     "seats": 5,
@@ -118,17 +118,6 @@
     "transmission": "Manual",
     "doors": 5,
     "fuel": "Diesel",
-    "image": "/images/car-placeholder.jpg"
-  },
-  {
-    "id": 12,
-    "name": "Citroen C3 Aircross",
-    "price": 650,
-    "duration": "Per Day",
-    "seats": 5,
-    "transmission": "Automatic",
-    "doors": 5,
-    "fuel": "Petrol",
     "image": "/images/car-placeholder.jpg"
   },
   {
