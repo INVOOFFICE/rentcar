@@ -480,7 +480,7 @@ export default function CarRentals() {
 
                   <div className="flex items-baseline gap-1 mb-4">
                     <span className="font-poppins text-xl font-bold text-remons-primary">
-                      {car.price} MAD
+                      {car.price} EUR
                     </span>
                     <span className="text-remons-gray text-sm font-inter">/ {car.duration}</span>
                   </div>
