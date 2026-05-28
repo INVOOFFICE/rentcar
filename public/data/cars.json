@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Dacia-Logan",
+    "category": "CAT A",
     "price": 300,
     "duration": "Per Day",
     "seats": 5,
@@ -13,6 +14,7 @@
   {
     "id": 2,
     "name": "Kia-Picanto",
+    "category": "CAT A",
     "price": 400,
     "duration": "Jour",
     "seats": 5,
@@ -24,6 +26,7 @@
   {
     "id": 3,
     "name": "Renault-Clio 5",
+    "category": "CAT B",
     "price": 250,
     "duration": "Jour",
     "seats": 5,
@@ -35,6 +38,7 @@
   {
     "id": 4,
     "name": "Peugeot-208",
+    "category": "CAT B",
     "price": 200,
     "duration": "Jour",
     "seats": 5,
@@ -46,6 +50,7 @@
   {
     "id": 5,
     "name": "Citroen C3 Aircross",
+    "category": "CAT C",
     "price": 200,
     "duration": "Jour",
     "seats": 5,
@@ -57,6 +62,7 @@
   {
     "id": 6,
     "name": "Citroen-Elys?e",
+    "category": "CAT A",
     "price": 200,
     "duration": "Jour",
     "seats": 5,
@@ -68,6 +74,7 @@
   {
     "id": 7,
     "name": "Fiat-500",
+    "category": "CAT A",
     "price": 200,
     "duration": "Jour",
     "seats": 5,
@@ -79,6 +86,7 @@
   {
     "id": 8,
     "name": "VolksWagen-Touareg",
+    "category": "CAT D",
     "price": 200,
     "duration": "Jour",
     "seats": 5,
@@ -90,6 +98,7 @@
   {
     "id": 9,
     "name": "Hyundai i10",
+    "category": "CAT A",
     "price": 270,
     "duration": "Per Day",
     "seats": 5,
@@ -101,6 +110,7 @@
   {
     "id": 10,
     "name": "Renault Kardian",
+    "category": "CAT B",
     "price": 500,
     "duration": "Per Day",
     "seats": 5,
@@ -112,6 +122,7 @@
   {
     "id": 11,
     "name": "Dacia Duster",
+    "category": "CAT C",
     "price": 600,
     "duration": "Per Day",
     "seats": 5,
@@ -123,6 +134,7 @@
   {
     "id": 12,
     "name": "Dacia Jogger 7 Places",
+    "category": "CAT C",
     "price": 750,
     "duration": "Per Day",
     "seats": 7,
@@ -134,6 +146,7 @@
   {
     "id": 13,
     "name": "Peugeot 3008",
+    "category": "CAT D",
     "price": 900,
     "duration": "Per Day",
     "seats": 5,

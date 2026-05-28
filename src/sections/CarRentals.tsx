@@ -8,6 +8,7 @@ import { DatePicker } from '@/components/DatePicker';
 interface Car {
   id: number;
   name: string;
+  category: string;
   price: number;
   duration: string;
   seats: number;
@@ -15,6 +16,64 @@ interface Car {
   doors: number;
   fuel: string;
   image: string;
+}
+
+interface PriceBracket {
+  minDays: number;
+  maxDays: number;
+  label: string;
+  normal: number;
+  haute: number;
+}
+
+const TARIFFS: Record<string, PriceBracket[]> = {
+  'CAT A': [
+    { minDays: 1, maxDays: 4, label: '1-4 j', normal: 30, haute: 43 },
+    { minDays: 5, maxDays: 8, label: '5-8 j', normal: 25, haute: 38 },
+    { minDays: 9, maxDays: 21, label: '9-21 j', normal: 23, haute: 33 },
+    { minDays: 22, maxDays: Infinity, label: '+21 j', normal: 20, haute: 28 },
+  ],
+  'CAT B': [
+    { minDays: 1, maxDays: 4, label: '1-4 j', normal: 35, haute: 50 },
+    { minDays: 5, maxDays: 8, label: '5-8 j', normal: 30, haute: 45 },
+    { minDays: 9, maxDays: 21, label: '9-21 j', normal: 27, haute: 40 },
+    { minDays: 22, maxDays: Infinity, label: '+21 j', normal: 25, haute: 35 },
+  ],
+  'CAT C': [
+    { minDays: 1, maxDays: 4, label: '1-4 j', normal: 45, haute: 55 },
+    { minDays: 5, maxDays: 8, label: '5-8 j', normal: 42, haute: 50 },
+    { minDays: 9, maxDays: 21, label: '9-21 j', normal: 38, haute: 45 },
+    { minDays: 22, maxDays: Infinity, label: '+21 j', normal: 35, haute: 40 },
+  ],
+  'CAT D': [
+    { minDays: 1, maxDays: 4, label: '1-4 j', normal: 70, haute: 80 },
+    { minDays: 5, maxDays: 8, label: '5-8 j', normal: 60, haute: 75 },
+    { minDays: 9, maxDays: 21, label: '9-21 j', normal: 50, haute: 70 },
+    { minDays: 22, maxDays: Infinity, label: '+21 j', normal: 40, haute: 60 },
+  ],
+};
+
+function getSeason(dateStr: string): 'normal' | 'haute' {
+  if (!dateStr) return 'normal';
+  const d = new Date(dateStr);
+  const m = d.getMonth() + 1;
+  const day = d.getDate();
+  if (m === 7 || (m === 8 && day <= 25)) return 'haute';
+  return 'normal';
+}
+
+function getDurationDays(startDate: string, endDate: string): number {
+  if (!startDate || !endDate) return 0;
+  const s = new Date(startDate);
+  const e = new Date(endDate);
+  const diff = e.getTime() - s.getTime();
+  return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+}
+
+function getBracket(category: string, days: number): PriceBracket | undefined {
+  const brackets = TARIFFS[category];
+  if (!brackets) return undefined;
+  return brackets.find(b => days >= b.minDays && days <= b.maxDays);
 }
 
 const PHONE = '212661341407';
@@ -57,6 +116,12 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const days = getDurationDays(form.startDate, form.endDate);
+  const season = getSeason(form.startDate);
+  const bracket = getBracket(car.category, days);
+  const dailyRate = bracket ? (season === 'haute' ? bracket.haute : bracket.normal) : 0;
+  const totalEUR = dailyRate * days;
+
   const sendReservationToSheet = async () => {
     if (!BOOKING_WEB_APP_URL) {
       throw new Error(t('cars.sheetError'));
@@ -70,11 +135,16 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
         email: form.email,
         phone: form.phone,
         carName: car.name,
+        carCategory: car.category,
         carPrice: car.price,
         carDuration: car.duration,
         startDate: form.startDate,
         endDate: form.endDate,
         location: form.location,
+        season: season,
+        durationDays: days,
+        dailyRateEUR: dailyRate,
+        totalEUR: totalEUR,
       },
     };
 
@@ -95,11 +165,17 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
     e.preventDefault();
     setSubmitMessage(null);
 
+    const seasonLabel = season === 'haute' ? 'Haute Saison' : 'Saison Normale';
+    const durationLabel = bracket ? bracket.label : '-';
     const message = [
       t('cars.bookingTitle'),
       ``,
       t('cars.carField') + car.name,
-      t('cars.priceField') + `${car.price} MAD / ${car.duration}`,
+      `Catégorie : ${car.category}`,
+      `Saison : ${seasonLabel}`,
+      `Durée : ${days} jours (${durationLabel})`,
+      `Tarif : ${dailyRate} EUR / jour`,
+      `*Total : ${totalEUR} EUR*`,
       t('cars.locationField') + form.location,
       t('cars.nameField') + form.name,
       t('cars.emailField') + form.email,
@@ -200,6 +276,34 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
               required
             />
           </div>
+
+          {form.startDate && form.endDate && days > 0 && dailyRate > 0 && (
+            <div className="bg-remons-light-gray rounded-xl p-4 space-y-1.5">
+              <p className="text-xs font-inter font-semibold text-remons-dark uppercase tracking-wider">
+                Détail du prix
+              </p>
+              <div className="flex justify-between text-sm font-inter text-remons-dark">
+                <span>Catégorie</span>
+                <span className="font-medium">{car.category}</span>
+              </div>
+              <div className="flex justify-between text-sm font-inter text-remons-dark">
+                <span>Saison</span>
+                <span className="font-medium">{season === 'haute' ? 'Haute Saison' : 'Saison Normale'}</span>
+              </div>
+              <div className="flex justify-between text-sm font-inter text-remons-dark">
+                <span>Durée</span>
+                <span className="font-medium">{days} jours ({bracket?.label})</span>
+              </div>
+              <div className="flex justify-between text-sm font-inter text-remons-dark">
+                <span>Tarif journalier</span>
+                <span className="font-medium">{dailyRate} EUR</span>
+              </div>
+              <div className="border-t border-remons-border pt-1.5 mt-1.5 flex justify-between text-sm font-inter font-bold text-remons-primary">
+                <span>Total</span>
+                <span>{totalEUR} EUR</span>
+              </div>
+            </div>
+          )}
 
           <div>
             <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
