@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Dacia-Logan",
-    "price": 450,
+    "price": 250,
     "duration": "Per Day",
     "seats": 5,
     "transmission": "Automatic",
@@ -86,5 +86,126 @@
     "doors": 4,
     "fuel": "Diesel",
     "image": "https://www.yacout-tours.com/uploads/cars/479e9ba94e00ca8ca3df12436949a73b.png"
+  },
+  {
+    "id": 9,
+    "name": "Kia Picanto",
+    "price": 250,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Manual",
+    "doors": 5,
+    "fuel": "Petrol",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Hyundai i10",
+    "price": 270,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Manual",
+    "doors": 5,
+    "fuel": "Petrol",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Dacia Sandero",
+    "price": 300,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Manual",
+    "doors": 5,
+    "fuel": "Petrol",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Dacia Logan",
+    "price": 320,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Manual",
+    "doors": 4,
+    "fuel": "Diesel",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Renault Clio 5",
+    "price": 400,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Renault Kardian",
+    "price": 500,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 5,
+    "fuel": "Petrol",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Peugeot 208",
+    "price": 420,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 5,
+    "fuel": "Petrol",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Dacia Duster",
+    "price": 600,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Manual",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Citro?n C3 Aircross",
+    "price": 650,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 5,
+    "fuel": "Petrol",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Dacia Jogger 7 Places",
+    "price": 750,
+    "duration": "Per Day",
+    "seats": 7,
+    "transmission": "Manual",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": "/images/car-placeholder.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Peugeot 3008",
+    "price": 900,
+    "duration": "Per Day",
+    "seats": 5,
+    "transmission": "Automatic",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": "/images/car-placeholder.jpg"
   }
 ]
