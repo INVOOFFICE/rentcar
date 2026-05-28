@@ -106,13 +106,13 @@ export default function About() {
           </div>
 
           {/* Right - Video */}
-          <div ref={rightRef} className="relative">
+          <div ref={rightRef} className="relative h-full">
             <video
               autoPlay
               muted
               loop
               playsInline
-              className="w-full max-w-[400px] mx-auto object-cover rounded-2xl relative z-10"
+              className="w-full h-full object-cover rounded-2xl relative z-10"
             >
               <source src={img('/Vid.mp4')} type="video/mp4" />
             </video>
