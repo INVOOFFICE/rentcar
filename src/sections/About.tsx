@@ -105,14 +105,17 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right - Image */}
+          {/* Right - Video */}
           <div ref={rightRef} className="relative">
-            <img
-              src={img('/images/4f.jpg')}
-              alt={t('about.consultantAlt')}
-              loading="lazy"
-              className="w-full max-w-[400px] mx-auto object-contain relative z-10"
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full max-w-[400px] mx-auto object-cover rounded-2xl relative z-10"
+            >
+              <source src={img('/Vid.mp4')} type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
