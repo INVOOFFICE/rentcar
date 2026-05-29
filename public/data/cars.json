@@ -114,7 +114,7 @@
     "price": 30,
     "duration": "jour",
     "seats": 5,
-    "transmission": "Manuelle",
+    "transmission": "Manual",
     "doors": 4,
     "fuel": "Essence",
     "image": "/images/car-placeholder.jpg"
