@@ -1,10 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Star } from 'lucide-react';
+import { Star, X } from 'lucide-react';
 import { img } from '@/lib/utils';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Gallery() {
   const { t } = useTranslation();
+  const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+  const modalVideoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useScrollAnimation<HTMLElement>({
     animation: 'fadeIn',
   });
@@ -14,6 +17,22 @@ export default function Gallery() {
     stagger: 0.1,
   });
 
+  useEffect(() => {
+    if (selectedVideo !== null && modalVideoRef.current) {
+      modalVideoRef.current.play();
+    }
+  }, [selectedVideo]);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedVideo(null);
+    };
+    if (selectedVideo !== null) {
+      document.addEventListener('keydown', handleKey);
+    }
+    return () => document.removeEventListener('keydown', handleKey);
+  }, [selectedVideo]);
+
   return (
     <section id="gallery" ref={sectionRef} className="bg-remons-light-gray py-[100px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,7 +40,7 @@ export default function Gallery() {
           {/* Masonry Grid */}
           <div ref={imagesRef} className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {Array.from({ length: 7 }, (_, i) => (
-              <div key={i} className="gallery-item aspect-[4/3] relative rounded-xl overflow-hidden group">
+              <div key={i} className="gallery-item aspect-[4/3] relative rounded-xl overflow-hidden group cursor-pointer">
                 <video
                   src={img(`/tmx/${i + 1}.mp4`)}
                   autoPlay
@@ -29,11 +48,37 @@ export default function Gallery() {
                   loop
                   playsInline
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  onClick={() => setSelectedVideo(i)}
                 />
                 <div className="absolute inset-0 bg-remons-primary/0 group-hover:bg-remons-primary/20 transition-colors duration-300" />
               </div>
             ))}
           </div>
+
+          {/* Video Modal */}
+          {selectedVideo !== null && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+              onClick={() => setSelectedVideo(null)}
+            >
+              <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+                <button
+                  onClick={() => setSelectedVideo(null)}
+                  className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/40 transition-colors"
+                >
+                  <X size={20} className="text-white" />
+                </button>
+                <video
+                  ref={modalVideoRef}
+                  src={img(`/tmx/${selectedVideo + 1}.mp4`)}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full rounded-xl shadow-2xl"
+                />
+              </div>
+            </div>
+          )}
 
           {/* Google Reviews Panel */}
           <div className="relative rounded-xl overflow-hidden flex items-center justify-center min-h-[300px]">
