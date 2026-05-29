@@ -19,7 +19,7 @@ export default function Gallery() {
 
   useEffect(() => {
     if (selectedVideo !== null && modalVideoRef.current) {
-      modalVideoRef.current.play();
+      modalVideoRef.current.play().catch(() => {});
     }
   }, [selectedVideo]);
 
