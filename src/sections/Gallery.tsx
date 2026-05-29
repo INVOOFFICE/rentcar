@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { ImagePlus } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { img } from '@/lib/utils';
 
 export default function Gallery() {
@@ -35,22 +35,29 @@ export default function Gallery() {
             ))}
           </div>
 
-          {/* Info Panel */}
+          {/* Google Reviews Panel */}
           <div className="relative rounded-xl overflow-hidden flex items-center justify-center min-h-[300px]">
-            {/* Diagonal gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-remons-primary to-remons-blue" />
-            
+
             <div className="relative z-10 text-center p-8">
-              <div className="w-14 h-14 rounded-full border-2 border-white/40 flex items-center justify-center mx-auto mb-6">
-                <ImagePlus size={28} className="text-white" />
+              <div className="flex items-center justify-center gap-1 mb-4">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
+                ))}
               </div>
-              <h3 className="font-poppins text-2xl font-bold text-white leading-tight mb-6"
-                dangerouslySetInnerHTML={{ __html: t('gallery.title') }} />
+              <h3 className="font-poppins text-2xl font-bold text-white leading-tight mb-2">
+                {t('gallery.title')}
+              </h3>
+              <p className="text-white/80 text-sm font-inter mb-6">
+                Note 4.9/5 sur Google
+              </p>
               <a
-                href="#cars"
-                className="w-14 h-14 rounded-full bg-white text-remons-primary flex items-center justify-center mx-auto hover:scale-110 hover:shadow-lg transition-all duration-300"
+                href="https://search.google.com/local/writereview?placeid=ChIJS4Si8pHurw0RBf6gdITg6Rw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-remons-primary font-semibold font-inter text-sm hover:scale-105 hover:shadow-lg transition-all duration-300"
               >
-                <span className="text-2xl font-bold">+</span>
+                Donnez votre avis
               </a>
             </div>
           </div>
