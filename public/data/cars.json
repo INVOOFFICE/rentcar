@@ -4,7 +4,7 @@
     "name": "Dacia-Logan",
     "category": "CAT A",
     "price": 30,
-    "duration": "jour",
+    "duration": "Per Day",
     "seats": 5,
     "transmission": "Manual",
     "doors": 4,
