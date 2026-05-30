@@ -6,7 +6,7 @@
     "price": 30,
     "duration": "jour",
     "seats": 5,
-    "transmission": "Automatic",
+    "transmission": "Manual",
     "doors": 4,
     "fuel": "Petrol",
     "image": "https://jyvpiuuzsllqaqtfogfz.supabase.co/storage/v1/object/public/invo/Dacia-Logan_4_11zon.jpg"
