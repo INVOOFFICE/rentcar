@@ -86,14 +86,14 @@
   {
     "id": 8,
     "name": "Dacia Jogger 7 Places",
-    "category": "CAT C",
+    "category": "CAT A",
     "price": 45,
     "duration": "jour",
     "seats": 7,
     "transmission": "Manual",
     "doors": 5,
     "fuel": "Diesel",
-    "image": "https://www.challenge.ma/wp-content/uploads/2026/01/NOUVEAU-DACIA-JOGGER.jpg"
+    "image": "https://jyvpiuuzsllqaqtfogfz.supabase.co/storage/v1/object/public/invo/NOUVEAU-DACIA-JOGGER_8_11zon.jpg"
   },
   {
     "id": 9,
